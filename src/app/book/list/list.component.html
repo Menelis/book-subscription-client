@@ -1,0 +1,30 @@
+<div class="card">
+  <div class="card-header">
+    <h4 class="card-title">Books</h4>
+  </div>
+  <div class="card-body">
+    <div class="col-md-12">
+    <table class="table table-bordered">
+      <caption>List of available books</caption>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Text</th>
+          <th>Price</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of books">
+          <td>{{item.name}}</td>
+          <td>{{item.text}}</td>
+          <td>{{item.price | currency:'R'}}</td>
+          <td>
+            <a class="btn btn-info" [routerLink]="[item.subscribed === 'No' ? ('/book/subscribe/' + item.id) : ('/book/unsubscribe/' + item.id)]">{{item.subscribed === 'No' ? 'Subscribe' : 'Unsubscribe'}}</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</div>
